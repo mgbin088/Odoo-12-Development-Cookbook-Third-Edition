@@ -9,7 +9,7 @@ class LibraryBook(models.Model):
     isbn = fields.Char('ISBN')
     date_release = fields.Date('Release Date')
     author_ids = fields.Many2many('res.partner', string='Authors')
-    old_edition = fields.Many2one('library.book', string='Old Editions')
+    old_edition = fields.Many2one('library.book', string='Old Edition')
 
     @api.multi
     def name_get(self):
@@ -31,5 +31,5 @@ class LibraryBook(models.Model):
                 ('author_ids.name', operator, name)
             ]
         return super(LibraryBook, self)._name_search(
-            name='', args=args, operator='ilike',
+            name=name, args=args, operator=operator,
             limit=limit, name_get_uid=name_get_uid)

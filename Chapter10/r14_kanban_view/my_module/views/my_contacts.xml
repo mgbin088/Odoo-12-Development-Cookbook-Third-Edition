@@ -19,7 +19,9 @@
                                 is
                                 <t t-if="record.customer.raw_value">
                                     a customer
-                                    <t t-if="record.supplier.raw_value"> and </t>
+                                </t>
+                                <t t-if="ecord.customer.raw_value and record.supplier.raw_value">
+                                    and
                                 </t>
                                 <t t-if="record.supplier.raw_value">
                                     a supplier
